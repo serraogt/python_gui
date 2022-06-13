@@ -1,0 +1,59 @@
+import tkinter as tk
+
+r =tk.Tk()
+r.title('Hello')
+
+text_box = tk.Text(
+    height=5,
+    width=80
+)
+
+
+def textBoxbutton():
+    finder_file = open("C:\\Users\\SerraAir\\Desktop\\mytext.txt")
+    reader_file = finder_file.read()
+
+    text_box.pack(expand=True)
+    text_box.insert('end', reader_file)
+
+    p = text_box
+    print(p)
+
+
+def calculator():
+    adress = open("C:\\Users\\SerraAir\\Desktop\\mytext.txt")
+    lines = []
+    finalines = []
+    liner2 = []
+    for line in adress:
+        lines.append(line.split())
+
+
+
+    for i in lines:
+
+        if i not in liner2:
+            liner2.append(i)
+
+
+
+    for word in liner2:
+        a ="frequency of :"+ str(word)+ " is "+ str(liner2.count(word))+"\n"
+        text_box.insert('end', a)
+
+
+    text_box.pack(expand=True)
+
+
+
+    p = text_box
+    print(p)
+
+
+button= tk.Button(master = r , text = " Read ",height = 2,widt =30, command =button_texxtBox,font =("Helvetica",15))
+button2= tk.Button(master = r , text = " Calculate ",height = 2,widt =30, command =calculator,font =("Helvetica",15))
+
+button.pack()
+button2.pack()
+
+r.mainloop()
